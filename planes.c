@@ -415,7 +415,6 @@ int main(int argc, char **argv)
   char *in_data_file = NULL;
   struct entries *codes = NULL;
   struct entries *data = NULL;
-  int xsize, ysize;
   int offset = 0;
   char *funcname = NULL;
 
@@ -441,7 +440,7 @@ int main(int argc, char **argv)
     base_name = ostrdup(mapname);
     p = strrchr(base_name, '.');
     if (p != NULL)
-      *p = (char) NULL;
+      *p = '\0';
   }
 
   label_not_needed(1);
@@ -494,10 +493,6 @@ int main(int argc, char **argv)
     offset = XSTEP/2;
     YSTEP = YMSTEP;
   }
-
-  /* Every unit gets a fixed size in the picture */
-  xsize = XSTEP * codes->xdim + offset;
-  ysize = YSTEP * codes->ydim;
 
   /* indexing the tables by plane-1 */
   plane--;

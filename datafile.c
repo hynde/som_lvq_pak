@@ -122,7 +122,7 @@ int read_headers(struct entries *entries)
 
   do 
     {
-      iline = getline(fi);
+      iline = getline_file(fi);
       row++;
       if (iline == NULL) {
 	fprintf(stderr, "Can't read file %s", fi->name);
@@ -157,7 +157,7 @@ int skip_headers(struct file_info *fi)
   /* Currently all header information is on the first non-comment line, so 
      we just skip it. */
 
-  while ((iline = getline(fi)) != NULL)
+  while ((iline = getline_file(fi)) != NULL)
     if (iline[0] != '#')
       break;
 
@@ -372,7 +372,7 @@ int save_entries_wcomments(struct entries *codes, char *out_code_file, char *com
     }
   /* write comments if there are any */
   if (comments)
-    fputs(comments, fi2fp(fi));
+    fputs(comments, fi->fp);
 
   /* write entries */
   for (entry = rewind_entries(codes, &p); entry != NULL; entry = next_entry(&p))
@@ -571,7 +571,7 @@ struct data_entry *load_entry(struct entries *entr, struct data_entry *entry)
   while (!line)
     {
       /* get line from file */
-      line = getline(fi);
+      line = getline_file(fi);
 
       /* The caller should check the entr->fi->error for errors or end
 	 of file */

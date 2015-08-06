@@ -675,7 +675,7 @@ int save_snapshot(struct teach_params *teach, long iter)
   int ko = shot->flags & SNAPFLAG_KEEPOPEN;
 
   shot->counter++;
-  if (ko)
+  if (ko) {
     if ((fi = shot->fi) == NULL)
       {
 	if ((shot->fi = open_file(shot->filename, "w")) == NULL)
@@ -685,6 +685,7 @@ int save_snapshot(struct teach_params *teach, long iter)
       }
     else
       fi = shot->fi;
+  }
 
 #ifndef NO_BACKGROUND_SNAP
   if (bg)

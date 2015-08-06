@@ -1,10 +1,10 @@
 
 # 
-CC=cc
-CFLAGS=-O
-LDFLAGS=-s
-LDLIBS=-lm
-LD=$(CC)
+#CC=cc
+#CFLAGS=-O
+#LDFLAGS=-s
+#LDLIBS=-lm
+#LD=$(CC)
 
 ## NetBSD-1.0 (tested on Amiga)
 ## 
@@ -40,11 +40,11 @@ LD=$(CC)
 
 ## Linux
 ##
-#CC=gcc
-#CFLAGS=-O2
-#LDFLAGS=-s
-#LDLIBS=-lm
-#LD=$(CC)
+CC=gcc
+CFLAGS=-O3 -Wall
+LDFLAGS=
+LDLIBS=-lm
+LD=$(CC)
 
 ## SGI
 ##
@@ -58,8 +58,9 @@ TESTFILES=ex.dat ex_fts.dat ex_ndy.dat ex_fdy.dat
 OBJS=som_rout.o lvq_pak.o fileio.o labels.o datafile.o version.o
 UMATOBJS=umat.o map.o median.o header.o
 OTHERFILES=header.ps
+PROGRAMS=vcal mapinit vsom qerror randinit lininit visual sammon planes vfind umat
 
-all: vcal mapinit vsom qerror randinit lininit visual sammon planes vfind umat
+all:	$(PROGRAMS)
 
 vsom:	vsom.o $(OBJS)
 	$(LD) $(LDFLAGS) -o $@ vsom.o $(OBJS) $(LDLIBS)
@@ -92,7 +93,7 @@ sammon:	sammon.o $(OBJS)
 
 planes: planes.o $(OBJS)
 	$(LD) $(LDFLAGS) -o $@ planes.o $(OBJS) $(LDLIBS)
-	
+
 vfind:	vfind.o $(OBJS)
 	$(LD) $(LDFLAGS) -o $@ vfind.o $(OBJS) $(LDLIBS)
 
@@ -135,4 +136,7 @@ som_rout.o:	som_rout.h lvq_pak.h datafile.h fileio.h labels.h
 
 vcal.o mapinit.o vsom.o qerror.o visual.o sammon.o:\
 	lvq_pak.h datafile.h fileio.h labels.h som_rout.h 
+
+clean:
+	rm -f *.o $(PROGRAMS)
 

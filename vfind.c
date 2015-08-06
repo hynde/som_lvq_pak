@@ -112,10 +112,10 @@ char *get_str(char *ch)
 
   tstr = ostrdup(str);
   tmp = strchr(tstr, ' ');
-  if (tmp != (char) NULL)
+  if (tmp != NULL)
     tmp[0] = '\0';
   tmp = strchr(tstr, '\n');
-  if (tmp != (char) NULL)
+  if (tmp != NULL)
     tmp[0] = '\0';
 
   return(tstr);

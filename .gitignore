@@ -1,0 +1,16 @@
+*~
+*.o
+lininit
+mapinit
+planes
+qerror
+randinit
+sammon
+umat
+vcal
+vfind
+visual
+vsom
+ex.cod
+ex.fvs
+ex.nvs

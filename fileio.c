@@ -233,13 +233,14 @@ int close_file(struct file_info *fi)
     {
       if (fi->name)
 	free(fi->name);
-      if (fi->fp)
+      if (fi->fp) {
 #ifndef NO_PIPED_COMMANDS
 	if (fi->flags.pipe) /* piped commands + compressed files */
 	  retcode = pclose(fi->fp);
 	else
 #endif /* NO_PIPED_COMMANDS */
 	  retcode = fclose(fi->fp);
+      }
       free(fi);
     }
   return retcode;
@@ -279,7 +280,7 @@ static char *check_for_compression(char *name)
 /* getline - get a line from file. Returns a char * to the line (a
    static buffer), NULL on error. */
     
-char *getline(struct file_info *fi)
+char *getline_file(struct file_info *fi)
 {
   static char *stre = NULL;
   static long strl = 0;

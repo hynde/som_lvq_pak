@@ -66,7 +66,7 @@ struct file_info {
 
 struct file_info *open_file(char *name, char *fmode);
 int close_file(struct file_info *fi);
-char *getline(struct file_info *fi);
+char *getline_file(struct file_info *fi);
 int rewind_file(struct file_info *fi);
 
 /* for getting the program name */

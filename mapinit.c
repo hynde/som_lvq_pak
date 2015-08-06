@@ -103,18 +103,17 @@ int main(int argc, char **argv)
 
   /* initialization type, overrides the one guessed from program name */
   s = extract_parameter(argc, argv, "-init", OPTION);
-  if (s)
+  if (s) {
     if (strcmp(s, "lin") == 0)
       init_type = IT_LIN;
     else if (strcmp(s, "rand") == 0)
       init_type = IT_RAND;
-
+  }
   if (parameters_left()) {
     fprintf(stderr, "Extra parameters in command line ignored\n");
   }
 
-  if (init_type == IT_UNKNOWN)
-    {
+  if (init_type == IT_UNKNOWN) {
       fprintf(stderr, "Unknown initialization type %s\n", s ? s : progname);
       exit(1);
     }
