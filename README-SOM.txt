@@ -8,7 +8,7 @@
 *                                                                      *
 *                          Program  Package                            *
 *                                                                      *
-*                   Version 3.0 (March 1, 1995)                        *
+*                   Version 3.1 (April 7, 1995)                        *
 *                                                                      *
 *                          Prepared by the                             *
 *                    SOM Programming Team of the                       *
@@ -17,7 +17,7 @@
 *                Rakentajanaukio 2 C, SF-02150 Espoo                   *
 *                              FINLAND                                 *
 *                                                                      *
-*                         Copyright (c) 1992                           *
+*                     Copyright (c) 1992-1995                          *
 *                                                                      *
 ************************************************************************
 *                                                                      *
@@ -49,21 +49,21 @@ The som_pak program package includes the following files:
       som_doc.ps.Z       same as above but compressed
       som_doc.txt        documentation in ASCII format
   - Source file archives:
-      som_p3r0.exe       Self-extracting MS-DOS archive file
-      som_pak-3.0.tar    UNIX tape archive file
-      som_pak-3.0.tar.Z  same as above but compressed
+      som_p3r1.exe       Self-extracting MS-DOS archive file
+      som_pak-3.1.tar    UNIX tape archive file
+      som_pak-3.1.tar.Z  same as above but compressed
 
 Installation in UNIX (in more detail, see som_doc.ps/txt):
-  - Uncompress som_pak-3.0.tar.Z
-  - Extract the files with "tar xovf som_pak-3.0.tar" which creates
-    the subdirectory som_pak-3.0
+  - Uncompress som_pak-3.1.tar.Z
+  - Extract the files with "tar xovf som_pak-3.1.tar" which creates
+    the subdirectory som_pak-3.1
   - Copy makefile.unix to the name makefile
   - Revise switches in the makefile, if necessary
   - Execute "make"
 
 Installation in MS-DOS (in more detail, see som_doc.ps/txt):
-  - By executing the command som_p3r0 the self-extracting archive
-    creates the directory som_pak.3r0 and extracts all the files in it
+  - By executing the command som_p3r1 the self-extracting archive
+    creates the directory som_pak.3r1 and extracts all the files in it
   - You are supposed to use Borland C++ Version 3.1 and to have
     all the necessary environment settings
   - Copy the file makefile.dos to the name makefile
@@ -80,3 +80,5 @@ Revision history:
     and many advanced features conserning application of the algorithms
     in large problems was released March 1, 1995; for these changes see
     documentation.
+  - Version 3.1 with a bug fix in random ordering of data was released
+    7 April 1995.
