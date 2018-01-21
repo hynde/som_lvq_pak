@@ -427,6 +427,7 @@ int rewind_file(struct file_info *fi)
 
 /* *********** routines for getting the program name ********** */
 
+#if defined(__GLIBC__)
 static char progname_real[512];
 
 char *setprogname(char *argv0)
@@ -462,3 +463,4 @@ char *setprogname(char *argv0)
   progname = s;
   return progname;
 }
+#endif

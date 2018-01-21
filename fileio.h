@@ -69,8 +69,10 @@ int close_file(struct file_info *fi);
 char *getline_file(struct file_info *fi);
 int rewind_file(struct file_info *fi);
 
+#if defined(__GLIBC__)
 /* for getting the program name */
 char *setprogname(char *argv0);
 #define getprogname() setprogname(NULL);
+#endif
 
 #endif /* SOMPAK_FILEIO_H */
