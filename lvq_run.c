@@ -157,7 +157,7 @@ void decrease_lvq_status(CLASSIFIER *c, int newstatus)
       c->hist_i = c->retrain_hist_bgn;
       break;
     default:
-      fprintf(stdout,"\nERROR: Cannot decrease status!\n");
+      fputs("\nERROR: Cannot decrease status!\n", stdout);
       break;
     }
     c->lvq_status = newstatus;
@@ -448,7 +448,7 @@ void read_classifier_parameters(CLASSIFIER *c)
   int ok;
   int i;
   
-  fprintf(stdout,sep);
+  fputs(sep, stdout);
   fprintf(stdout,"Enter now the parameters and associated filenames for this LVQ-classifier.");
   
   do {
@@ -691,7 +691,7 @@ void print_classifier(FILE *f, CLASSIFIER *c)
 {
   int i;
   if (f==stdout) {
-    fprintf(f,sep);
+    fputs(sep, f);
     fprintf(f,"\n");
   }
   fprintf(f,"%s\t Training data file\n", c->din);
@@ -954,7 +954,7 @@ void test_classifier (CLASSIFIER *c)
     }
   }
   
-  fprintf(stdout,sep);
+  fputs(sep, stdout);
   fprintf(stdout,"Starting testing:\n"); 
   fflush(stdout);
   
@@ -1008,7 +1008,7 @@ void compare_classifiers (CLASSIFIER *c1, CLASSIFIER *c2)
   }
   
   /* run McNemar's test */
-  fprintf(stdout,sep);
+  fputs(sep, stdout);
   sprintf(l,"%smcnemar %s %s",prog_dir, cif1,cif2);
   systemd(l);
 }
@@ -1048,8 +1048,8 @@ int main(int argc, char **argv)
 
   silent((int) oatoi(extract_parameter(argc, argv, SILENT, OPTION), 0));
 
-  fprintf(stdout,introMsg0);
-  fprintf(stdout,introMsg1);
+  puts(introMsg0);
+  puts(introMsg1);
   fprintf(stdout,"\nPress enter to continue.");
   getsb(l);
   
@@ -1061,7 +1061,7 @@ int main(int argc, char **argv)
   
   
   do {
-    fprintf(stdout,sep);
+    fputs(sep, stdout);
     if (nocl==0) 
       fprintf(stdout,"You don't have any classifiers yet. Start by option 1.");
     else if (nocl==1)

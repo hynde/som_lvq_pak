@@ -58,7 +58,7 @@ int main(int argc, char **argv)
   int error = 1;
 
   if (argc != 3) {
-    fprintf(stderr, usage);
+    fputs(usage, stderr);
     exit(1);
   }
   if ((cfi1 = open_file(argv[1],"r")) == NULL) {
